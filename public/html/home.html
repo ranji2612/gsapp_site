@@ -1,41 +1,15 @@
 <html>
 <head>
-	<title>Fibonacci Clock</title>
+    
+    
+	<title>GSAPP - Spring 2016</title>
 	<meta charset="utf-8" />
 	<!--  Meta tags for sharing -->
-	<!-- for Google -->
-	<meta name="description" content="Time shown in a geeky fibonacci clock. A fun, cool and an awesome way of showing time." />
-	<meta name="keywords" content="Fibonacci Clock Geek Nerd Time" />
-
-	<meta name="author" content="Ranjith Kumar" />
-	<meta name="copyright" content="" />
-	<meta name="application-name" content="Fibonacci Clock" />
-
-	<!-- for Facebook -->          
-	<meta property="og:title" content="Fibonacci Clock" />
-	<meta property="og:type" content="article" />
-	<meta property="og:image" content="http://fibonacciclock-ranji2612.rhcloud.com/sample.PNG" />
-	<meta property="og:url" content="http://fibonacciclock-ranji2612.rhcloud.com" />
-	<meta property="og:description" content="Time shown in a geeky fibonacci clock. A fun, cool and an awesome way of showing time." />
-
-	<!-- for Twitter -->          
-	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:title" content="Fibonacci Clock" />
-	<meta name="twitter:description" content="Time shown in a geeky fibonacci clock. A fun, cool and an awesome way of showing time." />
-	<meta name="twitter:image" content="http://fibonacciclock-ranji2612.rhcloud.com/sample.PNG" />
-	
-	
 	<!---->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	
-	<link rel="icon" 
-      type="image/png" 
-      href="favicon16.png">
-	
+
 	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	
-	<link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
-	
+
 	<style>
 	/* Sticky footer styles---------------------------------------------- */
 	html {
@@ -64,17 +38,6 @@
 	  height: 40px;
 	  background-color: #f5f5f5;
 	}
-	.timeBox {
-		margin: 1px;
-	}
-	.white {
-		color: #EEE;
-	}
-	.embedButton {
-		border: 1px solid #f5f5f5;
-		background-color: #222;
-		color: #EEE;
-	}
 	.sectionTitle {
 		font-weight: 100;
 		text-align: left;
@@ -82,185 +45,35 @@
 		padding-top: 20px;
 		padding-bottom: 5px;
 	}
-	.fb_iframe_widget,
-	.fb_iframe_widget span,
-	.fb_iframe_widget span iframe[style] {
-	  min-width: 100% !important;
-	  width: 100% !important;
-	}
-
 	</style>
-	<script src="js/jquery.min.js"></script>
 	
-	<script language="javascript" type="text/javascript">
-	function resizeIframe() {
-		document.getElementById('iframe').height = 0.75 * document.getElementById('iframe').offsetWidth;		
-	}
-    function resize_canvas(){
-			plotTimeNow();
-			resizeIframe();
-    }
-	function timeoutStart() {
-		var d = new Date();
-		var rem = 5 - d.getMinutes()%5;
-		console.log('Will ref in '+rem);
-		setTimeout( function() {
-			plotTimeNow();
-			setInterval(function() { plotTimeNow(); },5*60*1000);
-		}, (rem*60 - d.getSeconds())*1000 + 2);
-	}
-	</script>
-	<script type="text/javascript">
-	
-    </script>
 	<base href="/">
 </head>
-<body onresize="resize_canvas()" onload="timeoutStart()">
-	<!--  FB Comments -->
-	<div id="fb-root"></div>
-	<!--  FB Share -->
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
-	
-	<div >
-	
+<body ng-app="mainApp">
+	<div ng-controller="homeCtrl">
+
 		<!-- Navbar -->
 		<div class="navbar navbar-default navbar-fixed-top" style="background-color:#FFF;">
 			<div class="container" >
 				<div class="navbar-headr" >
-					
-					<strong><h1 style="font-family: 'Knewave', cursive;"><center>Fibonacci Clock</center></h1></strong><br/>
-				</div>
-				<!--
-				<ul class="nav  navbar-nav navbar-right">
-					<li class="" ><a href="/new"><strong>Create Poll</strong></a></li>
-					<li class="" ><a href="/poll/5538279c873b2578416e5a3f"><strong>Cool Stats</strong></a></li>
-				</ul>
-				-->
-			</div>
-		</div>
-		
-		<div class="container" >
-			<br/><br/><br/><br/><br/>
-			
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-8">
-					<div class="row">
-						<div class="col-xs-12 col-sm-12"  id="outerBox" align="center">
-							<br/><br/>
-							<canvas id="myCanvas"  width="800" height="500" style="border:0px solid #EEE;">
-		Your browser does not support the HTML5 canvas tag.
-		</canvas>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-12 col-md-4">
-					<div class="row">
 
-						<div class="col-xs-12 col-sm-12" align="center">
-							<div class="row">
-							<div class="col-sm-12">
-								<h4 class="sectionTitle">Share</h4>
-								<div id="share-buttons">
-
-									<!-- Facebook -->
-									<div class="fb-share-button" data-href="http://fibonacciclock-ranji2612.rhcloud.com/" data-layout="button_count"></div> &nbsp;&nbsp;
-
-									<!-- Twitter -->
-									<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://fibonacciclock-ranji2612.rhcloud.com/" data-text="Check this awesome Fibonacci Clock" data-via="ranji2612">Tweet</a>
-				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>&nbsp;&nbsp;
-
-									<!-- Google+ -->
-									<!-- Place this tag where you want the share button to render. -->
-									<div class="g-plus" data-action="share" data-annotation="bubble" data-href="http://fibonacciclock-ranji2612.rhcloud.com/"></div>
-
-									<!-- GitHub 
-									&nbsp;&nbsp;<iframe src="https://ghbtns.com/github-btn.html?user=ranji2612&repo=fibonacciclock&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe> -->
-
-									<!-- Digg -->
-									<!-- Reddit -->
-									<!-- LinkedIn -->
-									<!-- Pinterest -->
-									<!-- StumbleUpon-->
-									<!-- Email -->
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-12">
-
-									<!-- Embed Code -->
-									<br/>
-									<a class="embedButton btn" data-toggle="modal" data-target="#myModal">Embed</a>
-									<!-- Modal -->
-									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-									  <div class="modal-dialog">
-										<div class="modal-content">
-										  <div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-											<h4 class="modal-title" id="myModalLabel">Embed</h4>
-										  </div>
-										  <div class="modal-body" align="left">
-											Copy & paste the code below for embedding in your site.. <br/>
-											  <blockquote>
-											  <p class="highlight" style="font-size:12px;">
-												&lt;div id="outerBox" align="center" style="width:320px"&gt;&lt;a href="http://fibonacciclock-ranji2612.rhcloud.com/" target="_blank" style="text-decoration: none;"&gt;&lt;canvas id="myCanvas"  width="800" height="500" style="border:0px solid #EEE;"&gt;Your browser does not support the HTML5 canvas tag.&lt;/canvas&gt;&lt;strong&gt;Fibonacci Clock&lt;/strong&gt;&lt;/a&gt;&lt;/div&gt;&lt;script src="http://fibonacciclock-ranji2612.rhcloud.com/fillColor.js" type="text/javascript"&gt;&lt;/script&gt; 
-											</p>
-											</blockquote>
-										  </div>
-										  <div class="modal-footer">
-											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-										  </div>
-										</div>
-									  </div>
-									</div>
-
-
-
-									</div>
-							</div>
-							</div>
-
-						</div>
-						<div class="col-xs-12 col-sm-12" align="center">
-							<h4 class="sectionTitle">Inspiration</strong></h4>
-							<a href="https://www.kickstarter.com/projects/basbrun/fibonacci-clock-an-open-source-clock-for-nerds-wit" target="_blank" style="text-decoration: none;"><h5><strong>Fibonacci Clock - An open source clock for nerds with style</strong> - by Philippe Chrétien</h5></a><br/>
-
-							<iframe width="80%"  id="iframe" height="100%" src="https://www.kickstarter.com/projects/basbrun/fibonacci-clock-an-open-source-clock-for-nerds-wit/widget/video.html" frameborder="0" scrolling="no" onload='javascript:resizeIframe();'> </iframe>
-
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-12">
-					<br/><hr/>
-					<h4 class="sectionTitle"><strong>How to tell time</strong></h4>
-					<p align="justify">&nbsp;&nbsp;&nbsp;The Fibonacci sequence is a sequence of numbers created by the Italian mathematician Fibonacci in the 13th century. This is a sequence starting with 1 and 1, where each subsequent number is the sum of the previous two. For the clock I used the first 5 terms: 1, 1, 2, 3 and 5.   <br/><br/>
-
-&nbsp;&nbsp;&nbsp;The screen of the clock is made up of five squares whose side lengths match the first five Fibonacci numbers: 1, 1, 2, 3 and 5. The hours are displayed using red and the minutes using green. When a square is used to display both the hours and minutes it turns blue. White squares are ignored. <br/><br/>
-
-&nbsp;&nbsp;&nbsp;To tell time on the Fibonacci clock you need to do some math. To read the hour, simply add up the corresponding values of the red and blue squares. To read the minutes, do the same with the green and blue squares. The minutes are displayed in 5 minute increments (0 to 12) so you have to multiply your result by 5 to get the actual number. </p>
-					<br/>
-					<div align="center" >
-						<img src="howToTellTime.png">
-					</div>
-				</div>
-			</div>
-			<!-- FB Comments -->
-			<div class="row" align="center">
-				<div class="col-xs-12 col-sm-10 col-sm-offset-1">
-					<br/><hr/>
-
-					<div class="fb-comments" data-width="100%" data-href="http://fibonacciclock-ranji2612.rhcloud.com/" data-numposts="5" data-colorscheme="light"></div>
+					<strong><h3>GSAPP - Spring 2016</h3></strong><br/>
 				</div>
 				
 			</div>
+		</div>
+
+		<div class="container" >
+			<br/><br/><br/><br/><br/>
+
+			<div class="row">
+                <div class="col-sm-1 col-md-1"></div>
+				<div class="col-xs-8 col-sm-10 col-md-10">
+					<div ng-view="">
+                    </div>
+				</div>
+                <div class="col-sm-1 col-md-1"></div>
+            </div>
 		</div>
 	</div>
 	<!-- -->
@@ -268,35 +81,24 @@
     	<div class="container" align="middle">
 			<p class="text-muted">
 				<p class="white" valign="middle">
-					<a class="white" href="https://twitter.com/ranji2612" target="_blank">@ranji2612</a>
-					&nbsp;|&nbsp; <a class="white" href="https://github.com/ranji2612/fibonacciClock" target="_blank">GitHub</a>
+					<a class="white" href="http://www.arch.columbia.edu" target="_blank">GSAPP @ Columbia</a>
 					
 				</p>
 			</p>
 		</div>
 	</footer>
+    <!-- Loading scripts at the end -->
+	<script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="/js/angular.min.js"></script>
+    <script src="/js/angular-route.min.js"></script>
+
+    <!-- Angular Scripts -->
+    <script src="scripts/app.js" ></script>
+    <script src="scripts/courseCtrl.js" ></script>
 
 	
-	<!-- Loading scripts at the end -->
-	<script src="fillColor.js"></script>
-	
-	<script src="bootstrap/js/bootstrap.min.js"></script>
-	<!--  Google plus Share -->
-	<!-- Place this tag in your head or just before your close body tag. -->
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
 
-		<!-- Google Analytics -->
-	<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-33239140-2', 'auto');
-  ga('send', 'pageview');
-
-</script>
-<!-- End Google Analytics -->
-	<!-- End of Scripts -->
+		<!-- End of Scripts -->
 </body>
 </html>

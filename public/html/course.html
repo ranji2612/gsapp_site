@@ -40,12 +40,13 @@
         /* Dark Version */
         background:#222;
         color: #EEE;
-        
+        text-decoration:none;
         max-height: 200px;
         overflow-y: hidden;
     }
-    .details .a {
+    .details a {
         text-decoration:none;
+        color: #A4C5A1;
     }
     .prof {
         font-size: bold;
@@ -74,19 +75,22 @@
 
 <div ng-repeat="(code,type) in courseTypes">
     <h4>{{type}}</h4><hr/>
-    <Strong>
-            <div class="col-xs-1" align="center"></div>
-            <div class="col-xs-1">Course</div>
-            <div class="col-xs-2">Title</div>
-            <div class="col-xs-2">Instructor</div>
-            <div class="col-xs-2">Req</div>
-            <div class="col-xs-2">Location & Time</div>
-            <div class="col-xs-2">Session & Points</div>
-            <!--
-            <div class="col-xs-1">Call No</div>
-            -->
-        </Strong>
-    <br/><hr/>
+    <div class="col-sm-12">
+        <Strong>
+                <div class="col-xs-1" align="center"></div>
+                <div class="col-xs-1">Course</div>
+                <div class="col-xs-2">Title</div>
+                <div class="col-xs-2">Instructor</div>
+                <div class="col-xs-2">Req</div>
+                <div class="col-xs-2">Location & Time</div>
+                <div class="col-xs-2">Session & Points</div>
+                <!--
+                <div class="col-xs-1">Call No</div>
+                -->
+            </Strong>
+        <br/>
+    </div>
+    <hr/>
     <div class="col-sm-12 courserow" ng-repeat= "course in courses | filter : {type : code} | filter : searchText">
         
         <div ng-click="toggleCourseDetails(course.call_num)" class="row">
@@ -122,7 +126,7 @@
                     <!-- All Previous Syllabus -->
                     <h5>Available Syllabi</h5>
                     <h5>
-                    <a href = "http://www.columbia.edu/cu/bulletin/uwb/subj/{{course.type+'/'+course.c_id+'-'+course.year+course.semester+'-'+('00'+course.section).slice(-3)}}" target="_blank">
+                    <a href = "http://www.columbia.edu/cu/bulletin/uwb/subj/{{course.type+'/'+course.c_id+'-'+course.year+'1-'+('00'+course.section).slice(-3)}}" target="_blank">
                         Link to Bulletin Page</a></h5>
                     <div ng-repeat = "fac in syllabusMap[course.c_id]" style="font-size:10px;height=100px;scroll:true;">
                         <div ng-repeat="syl in fac">

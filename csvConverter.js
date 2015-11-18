@@ -1,7 +1,7 @@
 var fs = require('fs');
 
 //------------------- FACULTY ------------------------
-var data = require('./public/json/faculty.json');
+var data = require('./public/data/faculty.json');
 
 var content = "ID,Name,UNI,email,d-id\n";
 for(i in data) {
@@ -9,21 +9,22 @@ for(i in data) {
 }
 
 //Writing the CSV File
-fs.writeFile('faculty.csv', content, function (err) {
+fs.writeFile('./public/data/faculty.csv', content, function (err) {
   if (err) throw err;
   console.log('Faculty CSV saved!');
 });
 
 //------------------- COURSES ------------------------
 
-var data = require('./public/json/course.json');
+var data = require('./public/data/course.json');
 
 
-var content = "ID,Title,FacultyID,CallNum,Requirements,Location,Schedule,Points,Section,Type,Session,Year,Semester\n";
-for(i in data.slice(0,3)) {
+var content = "ID,Title,FacultyID_1,FacultyID_2,CallNum,Requirements,Location,Schedule,Points,Section,Type,Session,Year,Semester\n";
+for(i in data) {
         content += data[i].c_id + ",";
         content += data[i].c_title + ",";
         content += data[i].f1_id + ",";
+        content += data[i].f2_id + ",";
         content += data[i].call_num + ",";
         content += data[i].require + ",";
         content += data[i].location + ",";
@@ -40,7 +41,7 @@ for(i in data.slice(0,3)) {
 }
 console.log(content);
 //Writing the CSV File
-fs.writeFile('course.csv', content, function (err) {
+fs.writeFile('./public/data/course.csv', content, function (err) {
   if (err) throw err;
   console.log('Course CSV saved!');
 });

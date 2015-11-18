@@ -14,16 +14,16 @@ app.controller('courseCtrl', function($scope,$http) {
     
     
     //Get the Course Type
-    $http.get('/data/courseTypes.json')
+    $http.get('data/courseTypes.json')
     .success(function(data) {
         $scope.courseTypes = data;
     })
-    .error(function(data) {
+    .error(function(err) {
         console.log(err);
     });
     
     
-    $http.get('/data/syllabi.json')
+    $http.get('data/syllabi.json')
     .success(function(data) {
         $scope.syllabi = data;
         //Make the JSON for the syllabi
@@ -48,7 +48,7 @@ app.controller('courseCtrl', function($scope,$http) {
     });
     
     //Get the Faculty List - From CSV file
-    $http.get('/data/faculty.csv')
+    $http.get('data/faculty.csv')
     .success(function(data) {
         data = CSVToArray(data);
         data = arrayToObject(data.slice(1),["f_id","f_name","f_uni","f_email","d_id"]);
@@ -59,7 +59,7 @@ app.controller('courseCtrl', function($scope,$http) {
         }
         
         //Call the course
-        $http.get('/data/course.csv')
+        $http.get('data/course.csv')
         .success(function(data) {
             data = CSVToArray(data);
             data = arrayToObject(data.slice(1),["c_id","c_title","f1_id","f2_id","call_num","require","location","schedule","points","section","type","session","year","semester"]);

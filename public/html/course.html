@@ -1,17 +1,4 @@
 <style>
-    body {
-	  /* Margin bottom by footer height */
-	  margin-bottom: 40px;
-	  font-family: 'Open Sans', sans-serif;
-	  overflow-x: hidden;
-      background-color: #F1F3F1;
-	}
-	h5{
-		font-family: 'Open Sans', sans-serif;
-	}
-	strong{
-		font-family: 'Open Sans', sans-serif;
-	}
     .sectionTitle {
 		font-weight: 100;
 		text-align: left;
@@ -130,7 +117,7 @@
                         Link to Bulletin Page</a></h5>
                     <div ng-repeat = "fac in syllabusMap[course.c_id]" style="font-size:10px;height=100px;scroll:true;">
                         <div ng-repeat="syl in fac">
-                            <a href="/syllabi/{{syl.c_id+'/'+syl.year+'/'+syl.semester+'/'+('00'+syl.section).slice(-3)+'/'+syl.s_title}}" target="_blank">{{syl.s_title.split('_').splice(4).join(' ')}}</a>
+                            <a href="../syllabi2/{{syl.c_id+'/'+syl.year+'/'+syl.semester+'/'+('00'+syl.section).slice(-3)+'/'+syl.s_title}}" target="_blank">{{syl.s_title.split('_').splice(4).join(' ')}}</a>
                         </div>
                     </div>
                 </div>
@@ -138,7 +125,7 @@
                     <!-- Previous Syllabus by the instructor -->
                     <h5>Instructor's Previous Syllabus</h5>
                     <div ng-repeat="syl in syllabusMap[course.c_id][course.f1_id]" style="font-size:10px;">
-                        <a href="/syllabi/{{syl.c_id+'/'+syl.year+'/'+syl.semester+'/'+('00'+syl.section).slice(-3)+'/'+syl.s_title}}" target="_blank">{{syl.s_title.split('_').splice(4).join(' ')}}</a>
+                        <a href="../syllabi2/{{syl.c_id+'/'+syl.year+'/'+syl.semester+'/'+('00'+syl.section).slice(-3)+'/'+syl.s_title}}" target="_blank">{{syl.s_title.split('_').splice(4).join(' ')}}</a>
                     </div>
                 </div>
                 

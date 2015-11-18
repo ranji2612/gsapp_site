@@ -8,10 +8,42 @@
 	<!---->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Sticky footer styles
+        -------------------------------------------------- */
+        html {
+          position: relative;
+          min-height: 100%;
+        }
+        .btn-primary {
+            background-color: #252525;
+        }
+        body {
+          /* Margin bottom by footer height */
+          margin-bottom: 40px;
+          font-family: 'Open Sans', sans-serif;
 
-	
-	<base href="/">
+        }
+        h5{
+            font-family: 'Open Sans', sans-serif;
+        }
+        strong{
+            font-family: 'Open Sans', sans-serif;
+        }
+        .box{
+            border: 2px #BBB solid
+        }
+        .footer {
+          overflow: hidden;
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          /* Set the fixed height of the footer here */
+          height: 40px;
+          background-color: #252525;
+        }
+    </style>
 </head>
 <body ng-app="mainApp">
 	<div ng-controller="homeCtrl">

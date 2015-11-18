@@ -7,13 +7,8 @@ app.config(function ($routeProvider, $locationProvider) {
         templateUrl	:	'html/course.html',
         controller	:	'courseCtrl'
 	})
-    .when('/old', {
-        templateUrl	:	'html/oldPage.html',
-        controller	:	'oldCtrl'
-	})
     .otherwise({ redirectTo: '/' });
-	// use the HTML5 History API
-	$locationProvider.html5Mode(true);
+	
 });
 
 

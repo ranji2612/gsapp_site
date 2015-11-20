@@ -22,12 +22,12 @@ var data = require('./public/data/course.json');
 var content = "ID,Title,FacultyID_1,FacultyID_2,CallNum,Requirements,Location,Schedule,Points,Section,Type,Session,Year,Semester\n";
 for(i in data) {
         content += data[i].c_id + ",";
-        content += data[i].c_title + ",";
+        content += "\""+data[i].c_title +"\""+ ",";
         content += data[i].f1_id + ",";
         content += data[i].f2_id + ",";
         content += data[i].call_num + ",";
-        content += data[i].require + ",";
-        content += data[i].location + ",";
+        content += "\""+data[i].require +"\""+ ",";
+        content += "\""+data[i].location +"\""+ ",";
         //Contains ',' which inhibits the general function of CSV
         // SO putting the content within quotes will help
         //Keep this in mind while reading

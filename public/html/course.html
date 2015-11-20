@@ -60,8 +60,8 @@
     <input type="text" class="form-control" ng-model="searchText" placeholder="Search anything.."/><br/>
 </div>
 
-<div ng-repeat="(code,type) in courseTypes">
-    <h4>{{type}}</h4><hr/>
+<div ng-repeat="category in courseTypes">
+    <h4>{{category.name}}</h4><hr/>
     <div class="col-sm-12">
         <Strong>
                 <div class="col-xs-1" align="center"></div>
@@ -78,7 +78,7 @@
         <br/>
     </div>
     <hr/>
-    <div class="col-sm-12 courserow" ng-repeat= "course in courses | filter : {type : code} | filter : searchText">
+    <div class="col-sm-12 courserow" ng-repeat= "course in courses | filter : {type : category.code} | filter : searchText">
         
         <div ng-click="toggleCourseDetails(course.call_num)" class="row">
             <div class="col-xs-12"><br/></div>
@@ -88,7 +88,7 @@
                 <span class="glyphicon glyphicon-collapse-up" aria-hidden="true" ng-show="isVisibleCourseDetails(course.call_num)"></span></div>
             <div class="col-xs-1">{{course.c_id}}</div>
             <div class="col-xs-2">{{course.c_title + ' - ' + ('00'+course.section).slice(-3)}}</div>
-            <div class="col-xs-2 prof">{{faculty[course.f1_id].f_name}}</div>
+            <div class="col-xs-2 prof">{{faculty[course.f1_id].f_name}}{{(faculty[course.f2_id]!= null) &&  (', '+faculty[course.f2_id].f_name) || ''}}</div>
             <div class="col-xs-2">{{course.require}}</div>
             <div class="col-xs-2">
                 {{course.location}}<br/>
@@ -113,11 +113,11 @@
                     <!-- All Previous Syllabus -->
                     <h5>Available Syllabi</h5>
                     <h6>
-                        <a href = "http://www.columbia.edu/cu/bulletin/uwb/subj/{{course.type+'/'+course.c_id+'-'+course.year+course.semester+'-'+('00'+course.section).slice(-3)}}" target="_blank">
+                        <a href = "http://www.columbia.edu/cu/bulletin/uwb/subj/{{category.subject+'/'+course.c_id.slice(-5).toUpperCase()+'-'+course.year+course.semester+'-'+('00'+course.section).slice(-3)}}" target="_blank">
                         Bulletin Page</a>
                     </h6>
                     <h6>
-                        <a href = "https://courseworks.columbia.edu/public/{{course.type+course.c_id+'_'+('00'+course.section).slice(-3)+'_'+course.year+'_1/'}}" target="_blank">
+                        <a href = "https://courseworks.columbia.edu/public/{{category.subject+course.c_id.slice(-5).toUpperCase()+'_'+('00'+course.section).slice(-3)+'_'+course.year+'_'+course.semester+'/'}}" target="_blank">
                         Courseworks(Syllabus)</a>
                     </h6>
                     

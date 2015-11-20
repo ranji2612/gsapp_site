@@ -1,6 +1,7 @@
 app.controller('courseCtrl', function($scope,$http) {
     console.log('CourseCtrl under control..');
     $scope.syllabusMap = {};
+    $scope.imageMap = {};
     $scope.courseDetails=[];
     //For the search
     $scope.searchText = '';
@@ -22,7 +23,7 @@ app.controller('courseCtrl', function($scope,$http) {
         console.log(err);
     });
     
-    
+    //Getting the syllabus and mapping it
     $http.get('data/syllabi.json')
     .success(function(data) {
         $scope.syllabi = data;
@@ -42,6 +43,32 @@ app.controller('courseCtrl', function($scope,$http) {
             }
         }
         console.log('Syllabus Done');
+    })
+    .error(function(err) {
+        console.log(err);
+    });
+    
+    //Getting the Images list and mapping it
+    $http.get('data/image.json')
+    .success(function(data) {
+        $scope.image = data;
+        //Make the JSON for the syllabi
+        for (i in data) {
+            var c_id = data[i].c_id;
+            var f_id = data[i].f_id;
+            //Check for course in hash
+            if (typeof($scope.imageMap[c_id]) === "undefined") {
+                $scope.imageMap[c_id] = {};
+            }
+            //Check for facultyID in hash
+            if ( typeof($scope.imageMap[c_id][f_id]) === "undefined" ) {
+                $scope.imageMap[c_id][f_id]=[data[i]];
+            } else {
+                $scope.imageMap[c_id][f_id].push(data[i]);
+            }
+        }
+        console.log('Image List Done');
+        console.log($scope.imageMap);
     })
     .error(function(err) {
         console.log(err);

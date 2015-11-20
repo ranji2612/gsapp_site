@@ -28,10 +28,10 @@
         background:#222;
         color: #EEE;
         text-decoration:none;
-        max-height: 200px;
+        max-height: 300px;
         overflow-y: hidden;
     }
-    .details a {
+    .details a,h6 {
         text-decoration:none;
         color: #A4C5A1;
     }
@@ -109,23 +109,38 @@
         <div class="row details" ng-show="isVisibleCourseDetails(course.call_num)">
             <div class="col-sm-12">
             
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <!-- All Previous Syllabus -->
                     <h5>Available Syllabi</h5>
-                    <h5>
-                    <a href = "http://www.columbia.edu/cu/bulletin/uwb/subj/{{course.type+'/'+course.c_id+'-'+course.year+'1-'+('00'+course.section).slice(-3)}}" target="_blank">
-                        Link to Bulletin Page</a></h5>
+                    <h6>
+                        <a href = "http://www.columbia.edu/cu/bulletin/uwb/subj/{{course.type+'/'+course.c_id+'-'+course.year+course.semester+'-'+('00'+course.section).slice(-3)}}" target="_blank">
+                        Bulletin Page</a>
+                    </h6>
+                    <h6>
+                        <a href = "https://courseworks.columbia.edu/public/{{course.type+course.c_id+'_'+('00'+course.section).slice(-3)+'_'+course.year+'_1/'}}" target="_blank">
+                        Courseworks(Syllabus)</a>
+                    </h6>
+                    
                     <div ng-repeat = "fac in syllabusMap[course.c_id]" style="font-size:10px;height=100px;scroll:true;">
                         <div ng-repeat="syl in fac">
                             <a href="../syllabi2/{{syl.c_id+'/'+syl.year+'/'+syl.semester+'/'+('00'+syl.section).slice(-3)+'/'+syl.s_title}}" target="_blank">{{syl.s_title.split('_').splice(4).join(' ')}}</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <!-- Previous Syllabus by the instructor -->
                     <h5>Instructor's Previous Syllabus</h5>
+                    <h6 ng-hide="syllabusMap[course.c_id][course.f1_id].length">No Prev Syllabi..</h6>
                     <div ng-repeat="syl in syllabusMap[course.c_id][course.f1_id]" style="font-size:10px;">
                         <a href="../syllabi2/{{syl.c_id+'/'+syl.year+'/'+syl.semester+'/'+('00'+syl.section).slice(-3)+'/'+syl.s_title}}" target="_blank">{{syl.s_title.split('_').splice(4).join(' ')}}</a>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <!-- Previous Syllabus by the instructor -->
+                    <h5>Images</h5>
+                    <h6 ng-hide="imageMap[course.c_id][course.f1_id].length">No Images..</h6>
+                    <div ng-repeat="img in imageMap[course.c_id][course.f1_id]" style="font-size:10px;">
+                        <a href="../images2/{{img.c_id+'/'+img.year+'/'+img.semester+'/'+('00'+img.section).slice(-3)+'/'+img.img_title}}" target="_blank">{{img.img_title.split('_').splice(4).join(' ')}}</a>
                     </div>
                 </div>
                 

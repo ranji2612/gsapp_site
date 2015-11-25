@@ -1,3 +1,5 @@
 node_modules
 public/syllabi/*
 images2
+syllabi2
+*/**.DS_Store

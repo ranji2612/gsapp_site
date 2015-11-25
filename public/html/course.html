@@ -120,11 +120,17 @@
                         <a href = "https://courseworks.columbia.edu/public/{{category.subject+course.c_id.slice(-5).toUpperCase()+'_'+('00'+course.section).slice(-3)+'_'+course.year+'_'+course.semester+'/'}}" target="_blank">
                         Courseworks(Syllabus)</a>
                     </h6>
-                    
-                    <div ng-repeat = "fac in syllabusMap[course.c_id]" style="font-size:10px;height=100px;scroll:true;">
-                        <div ng-repeat="syl in fac">
-                            <a href="../syllabi2/{{syl.c_id+'/'+syl.year+'/'+syl.semester+'/'+('00'+syl.section).slice(-3)+'/'+syl.s_title}}" target="_blank">{{syl.s_title.split('_').splice(4).join(' ')}}</a>
+                    <!--
+                    <div ng-repeat = "(f_id,fac) in syllabusMap[course.c_id]" style="font-size:10px;height=100px;scroll:true;">
+                        <div ng-repeat="syl in fac | filter : {section : course.section}">
+                            <a href="../syllabi2/{{syl.c_id+'/'+syl.year+'/'+syl.semester+'/'+('00'+syl.section).slice(-3)+'/'+syl.s_title}}" target="_blank">{{syl.year+' '+getSemester(syl.semester) + ' ' + faculty[f_id].f_name}}</a>
                         </div>
+                    </div>
+                    -->
+                    <!-- Rewritting to provide the sorting feature
+                        converting list of objects of list of objects to just list of objects.. Yeah its complicated.. :P -->
+                    <div ng-repeat = "syl in getAllSyl(syllabusMap[course.c_id]) | filter : {section : course.section} | orderBy : '-year'" style="font-size:10px;height=100px;scroll:true;">
+                        <a href="../syllabi2/{{syl.c_id+'/'+syl.year+'/'+syl.semester+'/'+('00'+syl.section).slice(-3)+'/'+syl.s_title}}" target="_blank">{{syl.year+' '+getSemester(syl.semester) + ' ' + faculty[syl.f_id].f_name}}</a>
                     </div>
                 </div>
                 <div class="col-sm-4">
@@ -132,7 +138,7 @@
                     <h5>Instructor's Previous Syllabus</h5>
                     <h6 ng-hide="syllabusMap[course.c_id][course.f1_id].length">No Prev Syllabi..</h6>
                     <div ng-repeat="syl in syllabusMap[course.c_id][course.f1_id]" style="font-size:10px;">
-                        <a href="../syllabi2/{{syl.c_id+'/'+syl.year+'/'+syl.semester+'/'+('00'+syl.section).slice(-3)+'/'+syl.s_title}}" target="_blank">{{syl.s_title.split('_').splice(4).join(' ')}}</a>
+                        <a href="../syllabi2/{{syl.c_id+'/'+syl.year+'/'+syl.semester+'/'+('00'+syl.section).slice(-3)+'/'+syl.s_title}}" target="_blank">{{syl.year+' '+getSemester(syl.semester)}}</a>
                     </div>
                 </div>
                 <div class="col-sm-4">

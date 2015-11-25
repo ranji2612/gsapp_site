@@ -14,6 +14,26 @@ app.controller('courseCtrl', function($scope,$http) {
     };
     
     
+    //To sort the list of objects
+    function compare(a,b) {
+      if (a.year < b.year)
+        return 1;
+      if (a.year > b.year)
+        return -1;
+      return 0;
+    };
+    
+    //To consolidate and return the stuff
+    $scope.getAllSyl = function(data) {
+        var res = [];
+        for(i in data) {
+            for(j in data[i]) {
+                res.push(data[i][j]);
+            }
+        }
+        return res;
+    };
+    
     //Get the Course Type
     $http.get('data/courseTypes.json')
     .success(function(data) {
@@ -26,7 +46,9 @@ app.controller('courseCtrl', function($scope,$http) {
     //Getting the syllabus and mapping it
     $http.get('data/syllabi.json')
     .success(function(data) {
+        data = data.sort(compare);
         $scope.syllabi = data;
+        
         //Make the JSON for the syllabi
         for (i in data) {
             var c_id = data[i].c_id;
@@ -68,7 +90,6 @@ app.controller('courseCtrl', function($scope,$http) {
             }
         }
         console.log('Image List Done');
-        console.log($scope.imageMap);
     })
     .error(function(err) {
         console.log(err);
@@ -77,6 +98,7 @@ app.controller('courseCtrl', function($scope,$http) {
     //Get the Faculty List - From CSV file
     $http.get('data/faculty.csv')
     .success(function(data) {
+        
         data = CSVToArray(data);
         data = arrayToObject(data.slice(1),["f_id","f_name","f_uni","f_email","d_id"]);
         $scope.faculty = {};
@@ -111,7 +133,12 @@ app.controller('courseCtrl', function($scope,$http) {
         console.log(err);
     });
     
-    
+    //Get semester name
+    $scope.getSemester = function(n) {
+        if (n==1) return 'Spring';
+        else if(n==2) return 'Summer';
+        else return 'Fall';
+    };
 });
 
 //Convert CSV big string to array rows

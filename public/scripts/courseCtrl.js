@@ -24,11 +24,12 @@ app.controller('courseCtrl', function($scope,$http) {
     };
     
     //To consolidate and return the stuff
-    $scope.getAllSyl = function(data) {
+    $scope.getAllSyl = function(data,section) {
         var res = [];
         for(i in data) {
             for(j in data[i]) {
-                res.push(data[i][j]);
+                if (data[i][j].section == section)
+                    res.push(data[i][j]);
             }
         }
         return res;
@@ -101,6 +102,7 @@ app.controller('courseCtrl', function($scope,$http) {
         
         data = CSVToArray(data);
         data = arrayToObject(data.slice(1),["f_id","f_name","f_uni","f_email","d_id"]);
+        
         $scope.faculty = {};
         //console.log(data);
         for (i in data) {

@@ -129,7 +129,7 @@
                     -->
                     <!-- Rewritting to provide the sorting feature
                         converting list of objects of list of objects to just list of objects.. Yeah its complicated.. :P -->
-                    <div ng-repeat = "syl in getAllSyl(syllabusMap[course.c_id]) | filter : {section : course.section} | orderBy : '-year'" style="font-size:10px;height=100px;scroll:true;">
+                    <div ng-repeat = "syl in getAllSyl(syllabusMap[course.c_id], course.section) | filter : {section : course.section} | orderBy : '-year'" style="font-size:10px;height=100px;scroll:true;">
                         <a href="../syllabi2/{{syl.c_id+'/'+syl.year+'/'+syl.semester+'/'+('00'+syl.section).slice(-3)+'/'+syl.s_title}}" target="_blank">{{syl.year+' '+getSemester(syl.semester) + ' ' + faculty[syl.f_id].f_name}}</a>
                     </div>
                 </div>

@@ -209,6 +209,7 @@ ID,Name,UNI,email,d-id
 777,LOUISE LEMOINE,null,null,null
 778,BEN ARANDA,null,null,null
 502,GEORGE WHEELER,C001730245,null,null
+674,JOSE ARAGUEZ,null,null,null
 506,DENNIS,null,null,null
 510,JANET FOSTER,C000010936,null,null
 512,MARY JABLONSKI,C000012576,null,null
@@ -257,7 +258,6 @@ ID,Name,UNI,email,d-id
 600,JULIAN ROSE,null,null,null
 601,STELLA BETTS,null,null,null
 602,JEREMY BARBOUR,null,null,null
-603,GAUTHIER,null,null,null
 604,SUSANNE SCHINDLER,null,null,null
 609,DAVID BENJAMIN,null,null,null
 611,MARK THOMANN,null,null,null
@@ -281,7 +281,6 @@ ID,Name,UNI,email,d-id
 608,GEOFFREY M MANAUGH,null,null,null
 610,MICHAEL MORRIS,null,null,null
 672,F_NAME,null,null,null
-674,JOSE ARAGUEZ ESCOBAR,null,null,null
 706,ANDREW HEID,null,null,null
 708,LESLIE GILL,null,null,null
 710,VISHAAN CHAKRABARTI,null,null,null
@@ -296,8 +295,6 @@ ID,Name,UNI,email,d-id
 783,LEWIS,null,null,null
 784,JOYCE KLEIN ROSENTHAL,null,null,null
 785,DUNKS/ FEDERICO,null,null,null
-787,F LAPP,null,null,null
-788,WOODWARD,null,null,null
 790,GWENDOLYN WRIGHT,null,null,null
 642,ANNE VAN INGEN,null,null,null
 761,ED MOHYLOWSKI,null,null,null
@@ -307,3 +304,28 @@ ID,Name,UNI,email,d-id
 792,ELIOT SCLAR,null,null,null
 793,JULIE BEHRENS,null,null,null
 794,RICHARD M FROEHLICH,null,null,null
+795,DANIEL BOSIA,null,null,null
+796,BYRON STIGGE,null,null,null
+797,BRIAN LOUGHLIN,null,null,null
+798,ROBERT HERRMAN,null,null,null
+799,PETRA KEMPF,null,null,null
+800,FLYOLD LAPP,null,null,null
+801,DOUG WOODWARD,null,null,null
+802,RYAN JOHNS,null,null,null
+803,JORGE OTERO-PAILOS,null,null,null
+804,RANI GHARBIE,null,null,null
+805,DAN TAEYOUNG/FARZIN LOTFI-JAM,null,null,null
+806,DON FRIEDMAN,null,null,null
+807,CAROLINA CASTELLANOS,null,null,null
+808,NORMAN WEISS & DAN ALLEN,null,null,null
+809,LYNN LEWIS,null,null,null
+810,JEFF FERZOCO,null,null,null
+811,RICHARD DUNKS,null,null,null
+812,DAVID KRUTH,null,null,null
+813,ROBERT ENTIN,null,null,null
+814,RIDGE CHEW,null,null,null
+815,CLAUDIA KAVENAGH,null,null,null
+816,BELMOND FREEMAN & WILL RAYNOLDS,null,null,null
+817,ERRICA AVRAMI & WARD DENNIS,null,null,null
+818,ELLIOTT SCLAR,null,null,null
+819,GIOVANI GRAZIOSI,null,null,null

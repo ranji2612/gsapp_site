@@ -70,7 +70,10 @@
                 <div class="col-xs-2">Instructor</div>
                 <div class="col-xs-2">Req</div>
                 <div class="col-xs-2">Location & Time</div>
-                <div class="col-xs-2">Session & Points</div>
+                <div class="col-xs-2">
+                    <div class="col-xs-9">Session & Points</div>
+                    <div class="col-xs-3">Call No</div>
+                </div>
                 <!--
                 <div class="col-xs-1">Call No</div>
                 -->
@@ -78,7 +81,7 @@
         <br/>
     </div>
     <hr/>
-    <div class="col-sm-12 courserow" ng-repeat= "course in courses | filter : {type : category.code} | filter : searchText">
+    <div class="col-sm-12 courserow" ng-repeat= "course in courses | filter : {type : category.code} | filter : searchText | orderBy : 'c_id'">
         
         <div ng-click="toggleCourseDetails(course.call_num)" class="row">
             <div class="col-xs-12"><br/></div>
@@ -95,9 +98,15 @@
                 {{course.schedule}}
             </div>
             <div class="col-xs-2">
-                {{course.session}}<br/>
-                {{course.points}} Points<br/>
+                <div class="col-xs-8">
+                    {{course.session}}<br/>
+                    {{course.points}} Points<br/>
+                </div>
+                <div class="col-xs-4">
+                    {{course.call_num}}
+                </div>
             </div>
+            
             <!--
             <div class="col-xs-1">{{course.call_num}}</div>
             -->

@@ -45,8 +45,11 @@ app.controller('courseCtrl', function($scope,$http) {
     });
     
     //Getting the syllabus and mapping it
-    $http.get('data/syllabi.json')
+    $http.get('data/syllabi.csv')
     .success(function(data) {
+        data = CSVToArray(data);
+        data = arrayToObject(data.slice(1),["s_id","year","semester","c_id","section","f_id","s_title"]);
+        
         data = data.sort(compare);
         $scope.syllabi = data;
         
@@ -72,8 +75,11 @@ app.controller('courseCtrl', function($scope,$http) {
     });
     
     //Getting the Images list and mapping it
-    $http.get('data/image.json')
+    $http.get('data/image.csv')
     .success(function(data) {
+        data = CSVToArray(data);
+        data = arrayToObject(data.slice(1),["img_id","year","semester","section","c_id","f_id","img_title"]);
+        console.log(data);
         $scope.image = data;
         //Make the JSON for the syllabi
         for (i in data) {

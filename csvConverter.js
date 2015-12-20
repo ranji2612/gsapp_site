@@ -1,5 +1,5 @@
 var fs = require('fs');
-
+/*
 //------------------- FACULTY ------------------------
 var data = require('./public/data/faculty.json');
 
@@ -42,6 +42,45 @@ for(i in data) {
 console.log(content);
 //Writing the CSV File
 fs.writeFile('./public/data/course.csv', content, function (err) {
+  if (err) throw err;
+  console.log('Course CSV saved!');
+});
+*/
+
+//------------------- Syllabi ------------------------
+
+var data = require('./public/data/syllabi.json');
+
+
+var content = "ID,Year,Semester,CourseId,Section,facultyId,Title\n";
+for(i in data) {
+        for (j in data[i]) {
+            content += "\""+data[i][j] +"\""+ ",";
+        }
+        content = content.slice(0, -1) + "\n";
+}
+//console.log(content);
+//Writing the CSV File
+fs.writeFile('./public/data/syllabi.csv', content, function (err) {
+  if (err) throw err;
+  console.log('Course CSV saved!');
+});
+
+//------------------- Images ------------------------
+
+var data = require('./public/data/image.json');
+
+
+var content = "ID,Year,Semester,Section,CourseId,facultyId,Title\n";
+for(i in data) {
+        for (j in data[i]) {
+            content += "\""+data[i][j] +"\""+ ",";
+        }
+        content = content.slice(0, -1) + "\n";
+}
+//console.log(content);
+//Writing the CSV File
+fs.writeFile('./public/data/image.csv', content, function (err) {
   if (err) throw err;
   console.log('Course CSV saved!');
 });

@@ -12,6 +12,7 @@ var ipaddr 	 =  process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
 // All the minified files will be stored in dist Eg. dist/js/app.min.js 
 app.use(express.static(__dirname + '/dist')); 	// set the static files location
 app.use(express.static(__dirname + '/public')); 	// set the static files location
+app.use(express.static(__dirname + '/public2')); 	// set the static files location
 app.use(express.static(__dirname + '/')); 	// set the static files location
 app.use(express.static(__dirname + '/scripts')); 	// set the static files location
 

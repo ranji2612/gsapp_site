@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 mytable">
+            <form method="post" action="/change" name="submit" enctype="multipart/form-data">
+                <br/><hr/>File Details<br/><br/>
+                <table>
+                    <tr><td>Class ID </td><td><input name="c_id" type="text" required> </br></td></tr>
+                    <tr><td>Title </td><td><input name="c_title" type="text" required> </br></td></tr>
+                <tr><td>Section </td><td><input name="section" type="text" > </br></td></tr>
+                <tr><td>Faculty ID </td><td><input name="f1_id"  type="text" required> </br></td></tr>
+                <tr><td>Semester </td><td><input name="semester" type="text" required> </br></td></tr>
+                <tr><td>Type </td><td><input type="radio" name="type" value="syllabi" checked> Syllabi
+  <input type="radio" name="type" value="images"> Images </br></td></tr>
+                </table>
+                <br/><hr/>User Credentials<br/><br/>
+                <table>
+                
+                <tr><td>Username </td><td><input name="user" type="text" required/> </br></td></tr>
+                <tr><td>Password </td><td><input name="password" type="password" required/></br></td></tr>
+                </table>
+
+                <hr>
+
+
+                <input type="file" name="file1" required><br /><br />
+                <input type="submit" name="submit" value="Submit" prop1="valofprop1">
+            </form>
+        </div>
+    </div>
+</div>

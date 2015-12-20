@@ -79,7 +79,6 @@ app.controller('courseCtrl', function($scope,$http) {
     .success(function(data) {
         data = CSVToArray(data);
         data = arrayToObject(data.slice(1),["img_id","year","semester","section","c_id","f_id","img_title"]);
-        console.log(data);
         $scope.image = data;
         //Make the JSON for the syllabi
         for (i in data) {

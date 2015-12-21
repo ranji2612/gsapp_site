@@ -1,30 +1,89 @@
-<div class="container">
-    <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 mytable">
-            <form method="post" action="/change" name="submit" enctype="multipart/form-data">
-                <br/><hr/>File Details<br/><br/>
-                <table>
-                    <tr><td>Class ID </td><td><input name="c_id" type="text" required> </br></td></tr>
-                    <tr><td>Title </td><td><input name="c_title" type="text" required> </br></td></tr>
-                <tr><td>Section </td><td><input name="section" type="text" > </br></td></tr>
-                <tr><td>Faculty ID </td><td><input name="f1_id"  type="text" required> </br></td></tr>
-                <tr><td>Semester </td><td><input name="semester" type="text" required> </br></td></tr>
-                <tr><td>Type </td><td><input type="radio" name="type" value="syllabi" checked> Syllabi
-  <input type="radio" name="type" value="images"> Images </br></td></tr>
-                </table>
-                <br/><hr/>User Credentials<br/><br/>
-                <table>
-                
-                <tr><td>Username </td><td><input name="user" type="text" required/> </br></td></tr>
-                <tr><td>Password </td><td><input name="password" type="password" required/></br></td></tr>
-                </table>
+<html>
+<head>
+    
+    
+	<title>GSAPP - Spring 2016</title>
+	<meta charset="utf-8" />
+	<!--  Meta tags for sharing -->
+	<!---->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-                <hr>
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        
+         /* Sticky footer styles
+        -------------------------------------------------- */
+        html {
+          position: relative;
+          min-height: 100%;
+        }
+        .btn-primary {
+            background-color: #252525;
+        }
+        body {
+          /* Margin bottom by footer height */
+          margin-bottom: 40px;
+          font-family: 'Open Sans', sans-serif;
+          overflow-x: hidden;
+          background-color: #F1F3F1;
+        }
+        h5{
+            font-family: 'Open Sans', sans-serif;
+        }
+        strong{
+            font-family: 'Open Sans', sans-serif;
+        }
+        .footer {
+          overflow: hidden;
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          /* Set the fixed height of the footer here */
+          height: 40px;
+          background-color: #252525;
+        }
+    </style>
+    <!-- Site developed and designed by Ranjith Kumar (@ranji2612) & Ziang Jha -->
+</head>
+<body>
+	<div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 mytable">
+                <form method="post" action="/change" name="submit" enctype="multipart/form-data">
+                    <br/><hr/><h4>File Details</h4><br/><br/>
+                    <div class="row">
+                    <table class="col-sm-12">
+                        <tr class=""><td>Class ID </td><td><input name="c_id" type="text" class="" required> </br></td></tr>
+                        <tr><td>Year </td><td><input name="year" type="text" required> </br></td></tr>
+                    <tr><td>Section </td><td><input name="section" type="text" required> </br></td></tr>
+                    <tr><td>Faculty ID </td><td><input name="f1_id"  type="text" required> </br></td></tr>
+                    <tr><td>Semester </td><td><input name="semester" type="text" required> </br></td></tr>
+                    <tr><td>Type </td><td><input type="radio" name="type" value="syllabi" checked> Syllabi
+      <input type="radio" name="type" value="images"> Images </br></td></tr>
+                    </table>
+                    </div>
+                    <br/><hr/><h4>User Credentials</h4>
+                    
+                    <div class="row">
+                    <table class="col-sm-12">
+
+                    <tr><td>Username </td><td><input name="user" type="text" required/> </br></td></tr>
+                    <tr><td>Password </td><td><input name="password" type="password" required/></br></td></tr>
+                    </table>
+                    </div>
+
+                    <hr>
 
 
-                <input type="file" name="file1" required><br /><br />
-                <input type="submit" name="submit" value="Submit" prop1="valofprop1">
-            </form>
+                    <input type="file" name="file1" class="" required><br /><br />
+                    <input type="submit" class="btn btn-md btn-info" name="submit" value="Submit" prop1="valofprop1">
+                </form>
+            </div>
         </div>
     </div>
-</div>
+    <!-- Loading scripts at the end -->
+	<script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+	<!-- End of Scripts -->
+</body>
+</html>

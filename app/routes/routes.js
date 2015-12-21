@@ -8,14 +8,14 @@ var fs = require('fs')
 
 
 module.exports = function(app, passport) {
-	//Upload
+	//Upload - To upload to CUNIX server
     app.post('/change', upload.single('file1'), function(req,res) {
         console.log("---------FILES-------------");
         console.log(req.file);
         
         fs.rename(req.file.path, 'tmp/'+req.file.originalname, function (err) {
             if(err) res.send(500);
-            console.log('tmp/'+req.file.originalname);
+           req.body.section = ('00'+ req.body.section).slice(-3); console.log("/hmt/sirius1/viv0/data7/cu/arch/courses/"+req.body.type+"2/"+req.body.c_id+"/"+req.body.year+"/"+req.body.semester+"/"+req.body.section+"/"+req.file.originalname);
             //Create connectioon
               
                 var c = new ssh2();
@@ -28,16 +28,21 @@ module.exports = function(app, passport) {
 
                             sftp.fastPut(local, remote, {}, function (err) {
                                 console.log(err ? "Could not deploy. " : "Deployed.");
+                                //console.log(err);
                                 sftp.end();
                                 c.end();
-                                res.json({'status':'success','message':'Uploaded Successfully'});
-                                
+                                if(err){
+                                    res.send(err);
+                                } else {
+                                    res.send("Update Successful");
+                                }
+                                res.end();
                             });
                         });
                     };
                     
                     //
-                    putFile("tmp/"+req.file.originalname, "/hmt/sirius1/viv0/data7/cu/arch/courses/temp/"+req.file.originalname);
+                    putFile("tmp/"+req.file.originalname, "/hmt/sirius1/viv0/data7/cu/arch/courses/"+req.body.type+"2/"+req.body.c_id+"/"+req.body.year+"/"+req.body.semester+"/"+req.body.section+"/"+req.file.originalname);
                     //Close the SSH connection
                     //c.end();
                     
@@ -46,7 +51,8 @@ module.exports = function(app, passport) {
                 //On Invalid Credentials
                 c.on('error',function (err) {
                     console.log( "- connection error: %s", err );
-                    res.json({'status':'error','message':'Invalid Credentials'});
+                    res.send('Invalid Credentials');
+                    res.end();
                 });
                 //Connect to cunix server
                 c.connect({
@@ -59,7 +65,11 @@ module.exports = function(app, passport) {
         });
 
     });
-	// Load the home page for others apart from api
+	// TO render the upload page
+    app.get('/upload', function(req, res){
+        res.sendfile('public2/upload.html');
+    });
+    // Load the home page for others apart from api
     app.get('/*', function(req, res){
 		
 		res.sendfile('public/index.html');	
